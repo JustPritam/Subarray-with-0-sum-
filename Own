@@ -1,0 +1,26 @@
+class Solution{
+    //Function to check whether there is a subarray present with 0-sum or not.
+    static boolean findsum(int arr[],int n)
+    {
+        HashSet<Integer> h = new HashSet<>();
+        int a = 0;
+        int b = -9999;
+        for(int i = 0; i < n; i++){
+            a = a + arr[i];
+            if(a == 0) return true;
+        }
+        a = 0;
+        for(int i = 0; i < n; i++){
+            if(arr[i] == 0)
+            return true;
+            else{
+                a = a + arr[i];
+                if(h.contains(a))
+                return true;
+                else
+                h.add(a);
+            }
+        }
+        return false;
+    }
+}
